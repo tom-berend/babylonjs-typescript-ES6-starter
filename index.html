@@ -1,1 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Local Development</title>
+
+    <!--- script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script-->
+
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            font-size: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+
+    <!-- ammo is not part of Babylon, need to import it -->
+    <script src="lib/ammo.js"></script>
+
+    <script src="dist/asteroids.umd.js"></script>
+
+</body>
+
+</html>

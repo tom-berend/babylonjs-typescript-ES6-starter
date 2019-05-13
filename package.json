@@ -1,0 +1,41 @@
+{
+  "name": "babylonjs-typescript-es6-starter",
+  "version": "1.0.0",
+  "main": "dist/asteroids.cjs.js",
+  "module": "dist/asteroids.esm.js",
+  "browser": "dist/asteroids.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w -m",
+    "test": "jest -c jest.config.js"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^4.0.3",
+    "@babylonjs/loaders": "^4.0.3",
+    "@babylonjs/materials": "^4.0.3",
+    "@stardazed/ammo": "^0.1.1",
+    "@types/ms": "^0.7.30",
+    "babylonjs": "^4.0.3",
+    "babylonjs-loaders": "^4.0.3",
+    "babylonjs-materials": "^4.0.3",
+    "ms": "^2.0.0",
+    "seedrandom": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "build": "^0.1.4",
+    "jest": "^24.8.0",
+    "rollup": "^1.0.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-typescript": "^1.0.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.2"
+  },
+  "files": [
+    "dist"
+  ]
+}

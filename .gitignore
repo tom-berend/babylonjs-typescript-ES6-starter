@@ -1,0 +1,13 @@
+
+# Temp files
+*~
+*#
+.cache
+yarn.lock
+*.log
+
+# Node Modules
+node_modules/*
+
+# dist directory
+dist
