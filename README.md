@@ -12,7 +12,7 @@ Typescript.  Jest for testing.  Rollup for packaging.  Utilities for Lint, Forma
 
 Please switch to VSCODE as your IDE.  I know everyone has a favorite text editor, and I still miss my previous one.  But VSCODE is lightning fast, has amazing GIT integration, and plays nicer with Typescript than other IDEs.
 
-You may now have to relearn the keyboard codes you are familiar with. Check for VSCODE keymap extensions [here](https://code.visualstudio.com/docs/getstarted/keybindings#_keymap-extensions).  And print out the **Keyboard Shortcut Reference** for the OS you are using.
+You may not have to relearn the keyboard codes you are familiar with. Check for VSCODE keymap extensions [here](https://code.visualstudio.com/docs/getstarted/keybindings#_keymap-extensions).  And print out the **Keyboard Shortcut Reference** for the OS you are using.
 
 
 
@@ -27,6 +27,8 @@ I'm assuming you know how to use simple terminal commands and install software.
 3. Install VSCODE on your machine from [here.](https://code.visualstudio.com/)
 
 
+Probably worth while rebooting at this point.
+
 Open VSCODE.  Press F1 and start typing "git clone", press enter when it is your only choice.  Paste in the URL you copied from GitHub's 'Copy or Clone' tool.  Create a directory on your machine for this when asked.
 
 Still in VSCODE, open a terminal.  CTRL+SHIFT+M to open a console panel in VSCODE, and click on 'terminal' from the choices at the top of that panel.
@@ -37,7 +39,7 @@ Still in the terminal panel, type **npm run dev**. and you should soon see a bro
 
 ### Running, testing, and packaging your code
 
-1. You saw the **npm run dev** command.  It watches the source code and will recompile and relaunch if you change anything.
+1. You saw what the **npm run dev** command did (above).  It watches the source code and will recompile and relaunch if you change anything.
 
 2. The **npm run build** command will build a clean version of your code in the \dist folder.
 
