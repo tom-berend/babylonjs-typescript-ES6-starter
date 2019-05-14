@@ -43,7 +43,7 @@ Still in the terminal panel, type **npm run dev**. and you should soon see a bro
 
 2. The **npm run build** command will build a clean version of your code in the \dist folder.
 
-3. The **npm run test** command will run your JEST tests against the source.  I'm a big fan of Test-Driven Development (TDD), you should read about it [here.](https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92)
+3. The **npm run test** command will run your JEST tests against the source.  I'm a big fan of Test-Driven Development (TDD), you should read about it [here][(https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92] and more specifically for JEST [here.](https://www.jstwister.com/post/unit-testing-beginners-guide-testing-functions/)).  I have to admit that I yet have no idea how to apply TDD to game design.
 
 
 
