@@ -1,5 +1,3 @@
-// no tests yet, but this shows you what JEST tests look like
-
 jest.mock('../environment.ts', () => ({
   IS_DEV: true,
   IS_PROD: false,

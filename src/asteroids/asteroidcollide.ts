@@ -15,53 +15,40 @@ import {
     Quaternion,
     PhysicsImpostor,
     AmmoJSPlugin
-} from '@babylonjs/core';
+} from 'babylonjs';
 
-import { GridMaterial } from '@babylonjs/materials';
+import { GridMaterial } from 'babylonjs-materials'
+
+import { Asteroids } from './asteroids';
 
 export class AsteroidCollide {
 
-    private scene: Scene;
-    private camera: FreeCamera;
-    private light: Light;
+    // private asteroidGridMaterial: GridMaterial;
+    // private skyMaterial: GridMaterial;
 
-    private asteroidGridMaterial: GridMaterial;
-    private skyMaterial: GridMaterial;
-
-    constructor(canvas: HTMLCanvasElement, engine: Engine, scene: Scene) {
-
-        this.scene = scene;
-        let gravityVector = new Vector3(0, 0, 0); // no gravity
-        let physicsPlugin = new AmmoJSPlugin();
-        this.scene.enablePhysics(gravityVector, physicsPlugin);
-
-        // create a FreeCamera, and set its position to (x:0, y:5, z:-10)
-        this.camera = new FreeCamera("camera1", new Vector3(0, 5, -10), this.scene);
-        this.camera.setTarget(Vector3.Zero());
-        this.camera.attachControl(canvas, false);
-
-        // create a basic light, aiming 0,1,0 - meaning, to the sky
-        this.light = new HemisphericLight("light1", new Vector3(0, 1, 0), this.scene);
-
-
-        this.scene = scene;
-
-        this.asteroidGridMaterial = new GridMaterial("", this.scene);
-        this.asteroidGridMaterial.majorUnitFrequency = 3;
-        this.asteroidGridMaterial.gridRatio = 0.5;
-
-
-        this.skyMaterial = new GridMaterial("skyMaterial", this.scene);
-        this.skyMaterial.majorUnitFrequency = 6;
-        this.skyMaterial.mainColor = new Color3(0, 0.05, 0.2);
-        this.skyMaterial.lineColor = new Color3(0, 1.0, 1.0);
-
+    constructor() {
+        console.log('in AsteroidCollide constructor');
     }
 
     preload() { }
 
 
-    create() {
+    create(scene: Scene, camera: Camera) {
+
+        let asteroidGridMaterial = new BABYLON.GridMaterial("", scene);
+        asteroidGridMaterial.majorUnitFrequency = 3;
+        asteroidGridMaterial.gridRatio = 0.5;
+
+
+        let skyMaterial = new BABYLON.GridMaterial("skyMaterial", scene);
+        skyMaterial.majorUnitFrequency = 6;
+        skyMaterial.mainColor = new BABYLON.Color3(0, 0.05, 0.2);
+        skyMaterial.lineColor = new BABYLON.Color3(0, 1.0, 1.0);
+
+
+        // create a basic light, aiming 0,1,0 - meaning, to the sky
+        let light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+
 
         // let a1 = MeshBuilder.CreateSphere("mySphere", {
         //     diameterX: Math.random() * 5 + 2,
@@ -69,59 +56,75 @@ export class AsteroidCollide {
         //     diameterZ: Math.random() * 5 + 2
         // }, this.scene);
 
-        let a1 = this.createOneAsteroid();
+        let asteroids = new Asteroids();
 
-        a1.material = this.asteroidGridMaterial;
-        a1.position = new Vector3(-5, 0, 0)
-        //a1.rotation = new Vector3(2,3,4)
-        a1.physicsImpostor = new PhysicsImpostor(a1, PhysicsImpostor.SphereImpostor, { mass: 1 }, this.scene);
-        a1.physicsImpostor.setLinearVelocity(new Vector3(1, 0, 0));
-        a1.physicsImpostor.setAngularVelocity(new Vector3(this.randomMotion() * Math.PI, this.randomMotion() * Math.PI, this.randomMotion() * Math.PI));
 
-        let a2 = MeshBuilder.CreateSphere("mySphere", {
-            diameterX: Math.random() * 5 + 2,
-            diameterY: Math.random() * 5 + 2,
-            diameterZ: Math.random() * 5 + 2
-        }, this.scene);
-        a2.material = this.skyMaterial;
-        a2.position = new Vector3(5, 0, 0)
-        a2.physicsImpostor = new PhysicsImpostor(a2, PhysicsImpostor.SphereImpostor, { mass: 1 }, this.scene);
-        a2.physicsImpostor.setLinearVelocity(new Vector3(-1, 0, 0));
-        a2.physicsImpostor.setAngularVelocity(new Vector3(this.randomMotion() * Math.PI, this.randomMotion() * Math.PI, this.randomMotion() * Math.PI));
+        let size, position, linearV, angularV;
+
+        size = new BABYLON.Vector3(2, 4, 6);
+
+        // these three are heading right
+        linearV = new BABYLON.Vector3(1, 0, 0)
+        position = new BABYLON.Vector3(-5, 8, 0)
+        angularV = new BABYLON.Vector3(0, 0, 0)
+
+        let a1 = asteroids.createOneAsteroid(scene, size, position, linearV, angularV);
+
+        position = new BABYLON.Vector3(-5, 0, 0)
+        angularV = new BABYLON.Vector3(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI)
+
+        let b1 = asteroids.createOneAsteroid(scene, size, position, linearV, angularV);
+
+        position = new BABYLON.Vector3(-5, -8, 0)
+        angularV = new BABYLON.Vector3(0, 0, 0)
+        let c1 = asteroids.createOneAsteroid(scene, size, position, linearV, angularV);
+        if(c1.physicsImpostor)  // because I'm using typescript
+           c1.physicsImpostor.applyImpulse(new BABYLON.Vector3(-0.1,0,0), new BABYLON.Vector3(2,2,2));
+
+
+        // these three are heading left
+        linearV = new BABYLON.Vector3(-1, 0, 0)
+        position = new BABYLON.Vector3(5, 8, 0)
+        angularV = new BABYLON.Vector3(0, 0, 0)
+
+        let a2 = asteroids.createOneAsteroid(scene, size, position, linearV, angularV);
+
+        position = new BABYLON.Vector3(5, 0, 0)
+        angularV = new BABYLON.Vector3(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI)
+        let b2 = asteroids.createOneAsteroid(scene, size, position, linearV, angularV);
+
+        position = new BABYLON.Vector3(5, -8, 0)
+        angularV = new BABYLON.Vector3(0, 0, 0)
+        let c2 = asteroids.createOneAsteroid(scene, size, position, linearV, angularV);
+        if(c2.physicsImpostor)  // because I'm using typescript
+           c2.physicsImpostor.applyImpulse(new BABYLON.Vector3(0.1,0,0), new BABYLON.Vector3(2,2,2));
 
     }
 
     update() {
     }
 
-    randomMotion() {
-        return (Math.random() - 0.5);   // value between -.5 and .5
-    }
 
+    // given a position, linear velocity, and angular velocity, we return a mesh
+    createOneAsteroid(scene: Scene, size: Vector3, position: Vector3, linearV: Vector3, angularV: Vector3): Mesh {
 
-    createOneAsteroid() {
+        let mesh = BABYLON.MeshBuilder.CreateSphere("", {
+            diameterX: size.x,
+            diameterY: size.y,
+            diameterZ: size.z
+        }, scene);
 
-        let mesh = MeshBuilder.CreateSphere("mySphere", {
-            diameterX: Math.random() * 5 + 2,
-            diameterY: Math.random() * 5 + 2,
-            diameterZ: Math.random() * 5 + 2
-        }, this.scene);
+        mesh.position = position;
 
+        // normally the object mesh has a more complicated shape than the imposter
+        // ours should be exactly the same
+        mesh.physicsImpostor = new PhysicsImpostor(mesh, PhysicsImpostor.SphereImpostor, {
+            mass: 1,
+            restitution: 1.0
+        }, scene);
 
-        // normally the object mesh has a more complicated shape than the imposter here,
-        // we use exactly the same shape
-        // mesh.physicsImpostor = new PhysicsImpostor(mesh, PhysicsImpostor.SphereImpostor, {
-        //     mass: 1,
-        //     restitution: 0.9
-        // }, this.scene);
-
-        // mesh.physicsImpostor.setLinearVelocity(
-        //     new Vector3(this.randomMotion(), this.randomMotion(), this.randomMotion())
-        // );
-
-        // mesh.physicsImpostor.setAngularVelocity(
-        //     new Vector3(this.randomMotion() * Math.PI, this.randomMotion() * Math.PI, this.randomMotion() * Math.PI)
-        // );
+        mesh.physicsImpostor.setLinearVelocity(linearV);
+        mesh.physicsImpostor.setAngularVelocity(angularV);
 
         return (mesh);
     }
