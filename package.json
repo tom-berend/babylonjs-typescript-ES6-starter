@@ -1,40 +1,24 @@
 {
-  "name": "rollup-starter-lib",
+  "name": "babylon_TS_starter_kit",
+  "description": "",
   "version": "1.0.0",
-  "main": "dist/asteroids.cjs.js",
-  "module": "dist/asteroids.esm.js",
-  "browser": "dist/asteroids.umd.js",
+  "main": "index.ts",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w -m",
-    "test": "jest -c jest.config.js"
+    "build": "npx webpack",
+    "dev": "npx webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@babylonjs/core": "^4.0.3",
-    "@babylonjs/loaders": "^4.0.3",
-    "@babylonjs/materials": "^4.0.3",
-    "@stardazed/ammo": "^0.1.1",
-    "@types/ms": "^0.7.30",
-    "babylonjs": "^4.0.3",
-    "babylonjs-loaders": "^4.0.3",
-    "babylonjs-materials": "^4.0.3",
-    "ms": "^2.0.0",
-    "seedrandom": "^3.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "build": "^0.1.4",
-    "cannon": "^0.6.2",
-    "jest": "^24.8.0",
-    "rollup": "^1.0.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-serve": "^1.0.1",
-    "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript": "^1.0.0",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^7.0.1",
-    "tslib": "^1.9.3",
-    "typescript": "^3.2.2"
+    "@babylonjs/core": "^4.0.3",
+    "@babylonjs/gui": "^4.0.3",
+    "@babylonjs/materials": "^4.0.3",
+    "ammo.js": "github:kripken/ammo.js",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.5.1",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
   },
   "files": [
     "dist"

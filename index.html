@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Asteroids</title>
+    <title>Local Testing</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 
-    <!--- script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script-->
-
+    <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
 
     <style>
         html,
@@ -24,25 +24,20 @@
             font-size: 0;
         }
     </style>
+
+    <!-- Link to the last version of BabylonJS -->
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
 </head>
 
 <body>
-    <!-- comment this out for production, but leave the asserts in your code!! -->
-    <div id="assertdiv" style="display: none;">
-        <ul style="padding:0px;" id="output">
-        </ul>
-    </div>
-
 
     <canvas id="renderCanvas" touch-action="none"></canvas>
 
-    <!-- physics engine (cannon or ammo) is not part of Babylon, need to import it -->
-    <script src="lib/ammo.js"></script>
-    <script src="lib/babylon.js"></script>
-    <script src="lib/babylonjs.materials.js"></script>
+    <!-- physics engine is not part of Babylon, need to import it  -->
+        <script src="lib/ammo.js"></script>
 
-    <script src="dist/asteroids.js"></script>
-    </script>
+    <script src="dist/main.js"></script>
+
 </body>
 
 </html>
