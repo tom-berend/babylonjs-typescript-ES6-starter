@@ -4,9 +4,6 @@ I wanted to learn Typescript and ES6, and write some simple games in BabylonJS. 
 
 There are fabulous tools available for building and testing, but they don't play together well.  Each one has little 'gotcha's.
 
-So I've created this quick-start repository for BabylonJS beginners, with some of the best tools available.  And for myself, I know I will need another clean starter.
-
-Typescript.  Jest for testing.  Rollup for packaging.  Utilities for Lint, Format, and Code Completion.  And VSCODE.
 
 ### Switch to VSCODE
 
@@ -41,9 +38,9 @@ Still in the terminal panel, type **npm run dev**. and you should soon see a bro
 
 1. You saw what the **npm run dev** command did (above).  It watches the source code and will recompile and relaunch if you change anything.
 
-2. The **npm run build** command will build a clean version of your code in the \dist folder.
+2. The **npm run build** command will build a clean version of your code in the \dist folder.  
 
-3. The **npm run test** command will run your JEST tests against the source.  I'm a big fan of Test-Driven Development (TDD), you should read about it [here][(https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92] and more specifically for JEST [here.](https://www.jstwister.com/post/unit-testing-beginners-guide-testing-functions/)).  I have to admit that I yet have no idea how to apply TDD to game design.
+3. The **npm run test** command will eventually run your tests, but I haven't set it up yet.  I'm a big fan of Test-Driven Development (TDD), you should read about it [here][(https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92].  But I have no idea how to apply TDD to game design, everything is so visual.
 
 
 
