@@ -1,4 +1,6 @@
 
+// unused imports get removed by 'treeshaking' in WebPack / ES6
+
 import { Engine } from "@babylonjs/core/Engines/engine";
 import { Scene } from "@babylonjs/core/scene";
 import { Vector3, Color3 } from "@babylonjs/core/Maths/math";
@@ -20,6 +22,12 @@ import "@babylonjs/core/Meshes/meshBuilder";
 // Required side effects to populate the Physics methods on the mesh class.
 import "@babylonjs/core/Physics/physicsEngineComponent"
 // // see:  https://doc.babylonjs.com/features/es6_support
+
+
+// support for the Inspector
+// see:  https://doc.babylonjs.com/features/playground_debuglayer
+import "@babylonjs/core/Debug/debugLayer"; // Augments the scene with the debug methods
+import "@babylonjs/inspector"; // Injects a local ES6 version of the inspector to prevent automatically relying on the none compatible version
 
 
 import { Hinges } from './asteroids/hinges'
@@ -48,10 +56,13 @@ var createScene = function(engine: Engine, canvas: HTMLCanvasElement): Scene {
     var light2 = new HemisphericLight("light2", new Vector3(0, 0, 1), scene);
     light2.intensity = 0.6;
 
-    // Physics
+    // Physics (pick your favorite engine)
     //scene.enablePhysics(new Vector3(0, 0, 0), new CannonJSPlugin());
     //scene.enablePhysics(new Vector3(0, 0, 0), new OimoJSPlugin());
     scene.enablePhysics(new Vector3(0, 0, 0), new AmmoJSPlugin());
+
+    // turn on Inspector 
+    scene.debugLayer.show();
 
 
 
