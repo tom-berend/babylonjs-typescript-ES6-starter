@@ -10,16 +10,16 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babylonjs/core": "^4.0.3",
+    "@babylonjs/core": "^4.1.0",
     "@babylonjs/gui": "^4.0.3",
     "@babylonjs/inspector": "^4.0.3",
     "@babylonjs/materials": "^4.0.3",
-    "ammo.js": "github:kripken/ammo.js",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "ammo.js": "^0.0.2",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "files": [
     "dist"
