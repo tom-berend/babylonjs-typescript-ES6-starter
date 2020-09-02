@@ -8,6 +8,7 @@ yarn.lock
 
 # Node Modules
 node_modules/*
+package-lock.json
 
 # dist directory
 dist
