@@ -1,8 +1,12 @@
 {
   "name": "babylon_typescript_starter_kit",
-  "description": "",
-  "version": "1.0.0",
+  "description": "starter kit for babylon using typescript",
+  "version": "1.0.1",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tom-berend/babylonjs-typescript-ES6-starter.git"
+  },
   "scripts": {
     "build": "npx webpack",
     "dev": "npx webpack-dev-server",
@@ -10,21 +14,23 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babylonjs/core": "^4.1.0",
-    "@babylonjs/gui": "^4.1.0",
-    "@babylonjs/inspector": "^4.1.0",
-    "@babylonjs/materials": "^4.1.0",
+    "@babylonjs/core": "^4.2.0",
+    "@babylonjs/gui": "^4.2.0",
+    "@babylonjs/inspector": "^4.2.0",
+    "@babylonjs/materials": "^4.2.0",
+    "@types/react": "^16.7.3",
+    "@types/react-dom": "^16.0",
     "ammo.js": "https://github.com/kripken/ammo.js/",
     "ts-loader": "^8.0.3",
     "typescript": "^4.0.2",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },
   "files": [
     "dist"
   ],
   "keywords": [],
-  "author": "",
+  "author": "Tom Berend",
   "license": "MIT"
 }
